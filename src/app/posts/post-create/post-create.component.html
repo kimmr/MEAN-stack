@@ -1,8 +1,26 @@
 <mat-card>
-  <mat-form-field>
-    <textarea matInput rows="6" [(ngModel)]="userPost"></textarea>
-  </mat-form-field>
-  <button mat-stroked-button
-  color="primary"
-  (click)="onAddPost()">Save</button>
+  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+    <mat-form-field>
+      <input
+      matInput type="text"
+      name="title"
+      ngModel
+      required
+      maxlength="50"
+      placeholder="Title"
+      #title="ngModel">
+      <mat-error *ngIf="title.invalid">Title required</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput rows="6"
+      name="content"
+      ngModel
+      placeholder="Write something"
+      #content="ngModel">
+      </textarea>
+    </mat-form-field>
+    <button mat-stroked-button
+    color="primary"
+    type="submit">Save</button>
+  </form>
 </mat-card>
