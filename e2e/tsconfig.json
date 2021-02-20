@@ -9,6 +9,5 @@
       "jasmine",
       "node"
     ],
-    "strictPropertyInitialization": false
   }
 }
